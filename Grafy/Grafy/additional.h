@@ -7,7 +7,7 @@
 
 void GenerateGraph(int manyVertices, int density)
 {
-	srand(time(NULL));
+	srand(time(0));
 	int maxVertices = (((density / 100.0)*manyVertices*(manyVertices - 1))*0.5);
 	int edges = 0;
 	std::fstream graf;
@@ -38,7 +38,6 @@ void GenerateGraph(int manyVertices, int density)
 	std::string first_line;
 	getline(graf, first_line);
 
-	int procent;
 	for (edges; edges < maxVertices-1; ++edges)
 	{
 		int tempVertexStart = 0, tempVertexEnd = 0, tempWeight = 0, startVertex = 0, endVertex = 0;

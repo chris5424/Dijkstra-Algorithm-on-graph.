@@ -1,32 +1,4 @@
-#pragma once
-#include <iostream>
-#include <iomanip>
-#include <ctime>
-#include <cstdlib>
-
-using namespace std;
-
-// Definicja typu obiektowego queue
-//---------------------------------
-
-struct qelement
-{
-	int weight, vertex;
-};
-
-class queue
-{
-private:
-	qelement * T;  // kopiec dynamiczny
-	int size;         // liczba elementów
-
-public:
-	queue(int max_n);
-	~queue();
-	bool empty();
-	void push(int vertex, int weight);
-	qelement pop();
-};
+#include "hipo.h"
 
 // Konstruktor - rezerwuje pamiêæ na kopiec
 //-----------------------------------------
@@ -50,10 +22,23 @@ bool queue::empty()
 	return !size;
 }
 
+void queue::replace(int vertex, int newWeight)
+{
+	int i = 0;
+	while (T[i].vertex != vertex)
+	{
+		i++;
+		if (i == size)
+		{
+			return;
+		}
+	}
+	T[i].weight = newWeight;
+}
 
 // Zapisuje do kolejki wg priorytetu
 //----------------------------------
-void queue::push(int vertex,int weight )
+void queue::push(int vertex, int weight)
 {
 	int i, j;
 

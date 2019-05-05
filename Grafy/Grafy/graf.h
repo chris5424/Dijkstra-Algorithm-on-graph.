@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "hipo.h"
 
 
 class Graph_Matrix
@@ -147,12 +148,27 @@ private:
 				temp = temp->next;
 			}
 		}
+		void neighbours(qelement tab[])
+		{
+			V* temp = first;
+			int i = 0;
+			while (temp)
+			{
+				tab[i].vertex = temp->vertex;
+				tab[i].weight=temp->weight;
+				temp = temp->next;
+				i++;
+			}
+		}
+
+
 	};
 	int maxvertex;
 	listVertex *List;
 	
 
-public:
+	public:
+	//tu by³o public
 	int edges = 0;
 	Graph_List(int maxvertex)
 	{
@@ -166,5 +182,6 @@ public:
 	}
 	void addVertex(int start, int end, int weight);
 	void display();
+	void returnNeighbours(qelement tab[], int vertex);
 
 };

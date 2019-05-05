@@ -4,7 +4,7 @@
 #include "graf.h"
 #include "additional.h"
 #include "dijkstra.h"
-#include "heap.h"
+
 
 int main()
 {
@@ -15,41 +15,62 @@ int main()
 	SetConsoleTextAttribute(hOut, FOREGROUND_BLUE | FOREGROUND_RED);
 	//koniec kolorków
 
-	int manyVertices = 0;
-	int edges;
-	int startVertex;
+	int manyVertices = 0, edges=0, startVertex=0;
+	int tempVertexStart = 0, tempVertexEnd = 0, tempWeight = 0;
 
-	std::fstream graph;
+	std::fstream graph_file;
 	char file_name[20] = "graf.txt";
-
-	graph.open(file_name, std::ios::in);
-
-	if (graph.good() == 0)
+	graph_file.open(file_name, std::ios::in);
+	if (graph_file.good() == 0)
 	{
 		return 0;
 	}
 
-	graph >> edges >> manyVertices;
-	
-	Graph_Matrix *graf = new Graph_Matrix(manyVertices);
-	
-	graf->edges = edges;
-	graph >> startVertex;
-	//GenerateGraph(50, 100);
-	GenerateGraphRing(50, 10);
-
-	
-	int tempVertexStart = 0, tempVertexEnd = 0, tempWeight = 0;
-	
-	while (!graph.eof())
+	GenerateGraphRing(10, 100);
+	graph_file >> edges >> manyVertices >> startVertex;
+	//Graph_Matrix *graph = new Graph_Matrix(manyVertices);
+	Graph_List* graph = new Graph_List(manyVertices);
+	graph->edges = edges;
+		
+	while (!graph_file.eof())
 	{
-		graph >> tempVertexStart >> tempVertexEnd >> tempWeight;
-		graf->addVertex(tempVertexStart, tempVertexEnd, tempWeight);
+		graph_file >> tempVertexStart >> tempVertexEnd >> tempWeight;
+		graph->addVertex(tempVertexStart, tempVertexEnd, tempWeight);
 	}
-	//graf->display();
-	graph.close();
+	graph_file.close();
+	graph->display();
 
-	dijkstra(graf,startVertex,manyVertices);
+	std::cout << "\n";
+
+	//qelement* tab = new qelement[manyVertices];
+	//graph->returnNeighbours(tab,2);
+	/*for (int i = 0; i < manyVertices-1; i++)
+	{
+		std::cout << tab[i].vertex<<"#"<< tab[i].weight<<" ";
+	}*/
+	dijkstra(graph,startVertex,manyVertices);
+
+	//queue Q(100);   // kolejka 10-cio elementowa
+	//int i, p, v;
+
+	//srand(time(NULL));
+
+	//for (i = 0; i < 100; i++)
+	//{
+	//	v = rand() % 100;
+	//	p = rand() % 10;
+	//	std::cout << v << ":" << p << endl;
+	//	Q.push(v, p);
+	//}
+
+	//cout << "----\n";
+	//Q.replace(10, 2308);
+
+	//while (!Q.empty())
+	//{
+	//	qelement t = Q.pop();
+	//	cout << t.vertex << ":" << t.weight << endl;
+	//}
 
 
 	system("pause");

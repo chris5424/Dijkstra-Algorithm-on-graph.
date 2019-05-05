@@ -117,14 +117,14 @@
   <ItemGroup>
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="graf.cpp" />
+    <ClCompile Include="hipo.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="additional.h" />
-    <ClInclude Include="dij.h" />
     <ClInclude Include="dijkstra.h" />
     <ClInclude Include="graf.h" />
-    <ClInclude Include="heap.h" />
+    <ClInclude Include="hipo.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="graf.txt" />

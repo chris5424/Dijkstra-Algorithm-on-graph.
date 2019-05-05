@@ -3,6 +3,7 @@
 
 #include "graf.h"
 
+
 void Graph_Matrix::display()
 {
 	for (int i = 0; i < maxVertex; i++)
@@ -33,6 +34,21 @@ void Graph_Matrix::removeVertex(int start, int end)
 		adjacencyMatrix[end][start] = 0;
 		edges--;
 	}
+}
+
+bool Graph_Matrix::areAdjacent(int startVertex, int endVertex)
+{
+	if ((adjacencyMatrix[startVertex][endVertex] > 0) || (adjacencyMatrix[endVertex][startVertex] > 0))
+	{
+		return 1;
+	}
+	else
+		return 0;
+}
+
+int Graph_Matrix::returnWeight(int startVertex, int endVertex)
+{
+	return adjacencyMatrix[startVertex][endVertex];
 }
 
 void Graph_List::addVertex(int start, int end, int weight)
@@ -70,17 +86,8 @@ void Graph_List::display()
 	}
 }
 
-bool Graph_Matrix::areAdjacent(int startVertex, int endVertex)
+void Graph_List::returnNeighbours(qelement tab[], int vertex)
 {
-	if ((adjacencyMatrix[startVertex][endVertex] > 0) || (adjacencyMatrix[endVertex][startVertex] > 0))
-	{
-		return 1;
-	}
-	else
-		return 0;
+	List[vertex].neighbours(tab);
 }
 
-int Graph_Matrix::returnWeight(int startVertex, int endVertex)
-{
-	return adjacencyMatrix[startVertex][endVertex];
-}
