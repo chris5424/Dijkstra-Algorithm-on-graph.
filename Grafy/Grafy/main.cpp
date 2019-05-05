@@ -4,6 +4,7 @@
 #include "graf.h"
 #include "additional.h"
 #include "dijkstra.h"
+#include "heap.h"
 
 int main()
 {
@@ -50,7 +51,6 @@ int main()
 
 	dijkstra(graf,startVertex,manyVertices);
 
-	
 
 	system("pause");
 	return 1;

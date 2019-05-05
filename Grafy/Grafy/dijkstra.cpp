@@ -56,21 +56,21 @@ void dijkstra(Graph_Matrix *graph,int startVertex,  int size)
 	}
 	std::cout << std::endl;
 }
-void dijkstra(Graph_List graph, int startVertex, int size)
-{
-	int *distance = new int[size];
-	bool *visited = new bool[size];
-	for (int i = 0; i <= size; i++)
-	{
-		visited[i] = 0;
-	}
-	for (int i = 0; i <= size; i++)
-	{
-		distance[i] = infinity;
-	}
-	distance[startVertex] = 0;
-	visited[startVertex] = 1;
-
-	queue *Q = new queue(graph.edges);
-	Q->push()
-}
+//void dijkstra(Graph_List graph, int startVertex, int size)
+//{
+//	int *distance = new int[size];
+//	bool *visited = new bool[size];
+//	for (int i = 0; i <= size; i++)
+//	{
+//		visited[i] = 0;
+//	}
+//	for (int i = 0; i <= size; i++)
+//	{
+//		distance[i] = infinity;
+//	}
+//	distance[startVertex] = 0;
+//	visited[startVertex] = 1;
+//
+//	queue *Q = new queue(graph.edges);
+//	Q->push();
+//}
