@@ -5,6 +5,8 @@
 #include <ctime>
 #include <cstdlib>
 
+#include "heapsort.hpp"
+
 using namespace std;
 
 // Definicja typu obiektowego queue
@@ -29,7 +31,7 @@ public:
 	qelement pop();
 	void replace(int vertex, int newWeight);
 	void display();
-	//void heapify();
+	void heapify();
 };
 
 

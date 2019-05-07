@@ -60,7 +60,7 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 	int* distance = new int[size];
 	bool* visited = new bool[size];
 	queue* Q = new queue(size);
-	qelement* tab = new qelement[size];
+	qelement* tab = new qelement[size-1];
 
 
 	for (int i = 0; i < size; i++)
@@ -82,7 +82,7 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		}
 		qelement u = Q->pop();
 		visited[u.vertex] = 1;
-		graph->returnNeighbours(tab, u.vertex);
+		graph->returnNeighbours(tab, u.vertex,size);
 		for(int i=0;i<size-1;i++)
 		{
 			if ((visited[tab[i].vertex] == 0)&& (tab[i].vertex != -1))
@@ -91,7 +91,7 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 				{
 					distance[tab[i].weight] = distance[u.vertex] + tab[i].weight;
 					Q->replace(tab[i].vertex, distance[tab[i].weight]);
-					//Q->heapify();
+					Q->heapify();
 				}
 			}
 		}

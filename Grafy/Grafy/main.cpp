@@ -49,32 +49,40 @@ int main()
 	{
 		std::cout << tab[i].vertex<<"#"<< tab[i].weight<<" ";
 	}*/
-	//dijkstra(graph,startVertex,manyVertices);
-	//dijkstra(graphm, startVertex, manyVertices);
+	dijkstra(graph,startVertex,manyVertices);
+	dijkstra(graphm, startVertex, manyVertices);
 
-	queue Q(10);   // kolejka 10-cio elementowa
-	int i, p, v;
+	//queue Q(10);   // kolejka 10-cio elementowa
+	//int i, p, v;
 
-	srand(time(NULL));
+	//srand(time(NULL));
 
-	for (i = 0; i < 10; i++)
-	{
-		v = rand() % 10;
-		p = rand() % 10;
-		std::cout << v << ":" << p << endl;
-		Q.push(v, p);
-	}
+	//for (i = 0; i < 10; i++)
+	//{
+	//	v = rand() % 10;
+	//	p = rand() % 10;
+	//	std::cout << v << ":" << p << endl;
+	//	Q.push(v, p);
+	//}
 
-	cout << "----\n";
-	Q.replace(1, 2308);
+	//cout << "----\n";
+	//Q.replace(1, 2308);
 
 	/*while (!Q.empty())
 	{
 		qelement t = Q.pop();
 		cout << t.vertex << ":" << t.weight << endl;
 	}*/
+	/*Q.display();
+	Q.heapify();
+	std::cout << std::endl;
 	Q.display();
-
+	std::cout << std::endl;
+	while (!Q.empty())
+	{
+		qelement t = Q.pop();
+		cout << t.vertex << ":" << t.weight << endl;
+	}*/
 
 	system("pause");
 	return 1;

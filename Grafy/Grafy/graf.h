@@ -148,7 +148,7 @@ private:
 				temp = temp->next;
 			}
 		}
-		void neighbours(qelement tab[])
+		void neighbours(qelement tab[],int size)
 		{
 			V* temp = first;
 			int i = 0;
@@ -158,6 +158,10 @@ private:
 				tab[i].weight=temp->weight;
 				temp = temp->next;
 				i++;
+				if (i == size-1)
+				{
+					break;
+				}
 			}
 		}
 
@@ -182,6 +186,6 @@ private:
 	}
 	void addVertex(int start, int end, int weight);
 	void display();
-	void returnNeighbours(qelement tab[], int vertex);
+	void returnNeighbours(qelement tab[], int vertex,int size);
 
 };

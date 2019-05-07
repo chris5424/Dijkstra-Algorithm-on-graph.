@@ -86,8 +86,8 @@ void Graph_List::display()
 	}
 }
 
-void Graph_List::returnNeighbours(qelement tab[], int vertex)
+void Graph_List::returnNeighbours(qelement tab[], int vertex, int size)
 {
-	List[vertex].neighbours(tab);
+	List[vertex].neighbours(tab,size);
 }
 

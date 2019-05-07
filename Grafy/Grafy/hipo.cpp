@@ -44,10 +44,29 @@ void queue::display()
 	}
 }
 
-//void queue::heapify()
-//{
-//
-//}
+void queue::heapify()
+{
+	for (int parentInd = 0; parentInd < size; parentInd++)
+	{
+		int min = parentInd;
+		int leftChild = parentInd * 2 + 1;
+		int rightChild = parentInd * 2 + 2;
+
+		if (leftChild < size && T[leftChild].weight < T[min].weight) {
+			min = leftChild;
+		}
+		if (rightChild < size && T[rightChild].weight < T[min].weight) {
+			min = rightChild;
+		}
+		if (min != parentInd)
+		{
+			qelement temp;
+			temp = T[min];
+			T[min] = T[parentInd];
+			T[parentInd] = temp;
+		}
+	}
+}
 
 // Zapisuje do kolejki wg priorytetu
 //----------------------------------
