@@ -63,34 +63,35 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 	qelement* tab = new qelement[size];
 
 
-	for (int i = 0; i <= size; i++)
+	for (int i = 0; i < size; i++)
 	{
 		if (startVertex != i)
 		{
 			distance[i] = infinity;
 		}
+		distance[startVertex] = 0;
 		visited[i] = 0;
 		Q->push(i, distance[i]);
 	}
 	while (!(Q->empty()))
 	{
-		for (int i = 0; i <= size; i++)
+		for (int i = 0; i < size-1; i++)
 		{
 			tab[i].vertex = -1;
+			tab[i].weight = 0;
 		}
 		qelement u = Q->pop();
 		visited[u.vertex] = 1;
 		graph->returnNeighbours(tab, u.vertex);
-		int i = 0;
-		while (tab[i].vertex != -1)
+		for(int i=0;i<size-1;i++)
 		{
-			i++;
-			if (visited[tab[i].vertex] == 0)
+			if ((visited[tab[i].vertex] == 0)&& (tab[i].vertex != -1))
 			{
-				if ((distance[u.vertex] + tab[i].weight < distance[tab[i].weight])||((distance[tab[i].weight] == infinity)))
+				if ((distance[u.vertex] + tab[i].weight) < distance[tab[i].weight])
 				{
 					distance[tab[i].weight] = distance[u.vertex] + tab[i].weight;
-					Q->replace(tab[i].weight, distance[tab[i].weight]);
+					Q->replace(tab[i].vertex, distance[tab[i].weight]);
+					//Q->heapify();
 				}
 			}
 		}

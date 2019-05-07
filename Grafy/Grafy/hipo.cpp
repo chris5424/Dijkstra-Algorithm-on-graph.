@@ -36,6 +36,19 @@ void queue::replace(int vertex, int newWeight)
 	T[i].weight = newWeight;
 }
 
+void queue::display()
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << T[i].vertex <<":"<<T[i].weight<<std::endl;
+	}
+}
+
+//void queue::heapify()
+//{
+//
+//}
+
 // Zapisuje do kolejki wg priorytetu
 //----------------------------------
 void queue::push(int vertex, int weight)

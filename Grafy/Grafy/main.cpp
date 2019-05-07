@@ -28,7 +28,7 @@ int main()
 
 	GenerateGraphRing(10, 100);
 	graph_file >> edges >> manyVertices >> startVertex;
-	//Graph_Matrix *graph = new Graph_Matrix(manyVertices);
+	Graph_Matrix *graphm = new Graph_Matrix(manyVertices);
 	Graph_List* graph = new Graph_List(manyVertices);
 	graph->edges = edges;
 		
@@ -36,6 +36,7 @@ int main()
 	{
 		graph_file >> tempVertexStart >> tempVertexEnd >> tempWeight;
 		graph->addVertex(tempVertexStart, tempVertexEnd, tempWeight);
+		graphm->addVertex(tempVertexStart, tempVertexEnd, tempWeight);
 	}
 	graph_file.close();
 	graph->display();
@@ -48,29 +49,31 @@ int main()
 	{
 		std::cout << tab[i].vertex<<"#"<< tab[i].weight<<" ";
 	}*/
-	dijkstra(graph,startVertex,manyVertices);
+	//dijkstra(graph,startVertex,manyVertices);
+	//dijkstra(graphm, startVertex, manyVertices);
 
-	//queue Q(100);   // kolejka 10-cio elementowa
-	//int i, p, v;
+	queue Q(10);   // kolejka 10-cio elementowa
+	int i, p, v;
 
-	//srand(time(NULL));
+	srand(time(NULL));
 
-	//for (i = 0; i < 100; i++)
-	//{
-	//	v = rand() % 100;
-	//	p = rand() % 10;
-	//	std::cout << v << ":" << p << endl;
-	//	Q.push(v, p);
-	//}
+	for (i = 0; i < 10; i++)
+	{
+		v = rand() % 10;
+		p = rand() % 10;
+		std::cout << v << ":" << p << endl;
+		Q.push(v, p);
+	}
 
-	//cout << "----\n";
-	//Q.replace(10, 2308);
+	cout << "----\n";
+	Q.replace(1, 2308);
 
-	//while (!Q.empty())
-	//{
-	//	qelement t = Q.pop();
-	//	cout << t.vertex << ":" << t.weight << endl;
-	//}
+	/*while (!Q.empty())
+	{
+		qelement t = Q.pop();
+		cout << t.vertex << ":" << t.weight << endl;
+	}*/
+	Q.display();
 
 
 	system("pause");

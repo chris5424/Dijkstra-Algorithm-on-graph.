@@ -28,6 +28,8 @@ public:
 	void push(int vertex, int weight);
 	qelement pop();
 	void replace(int vertex, int newWeight);
+	void display();
+	//void heapify();
 };
 
 
