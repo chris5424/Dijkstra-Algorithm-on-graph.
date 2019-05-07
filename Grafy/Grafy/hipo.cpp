@@ -2,7 +2,7 @@
 
 // Konstruktor - rezerwuje pamiêæ na kopiec
 //-----------------------------------------
-queue::queue(int max_n)
+queue_prior::queue_prior(int max_n)
 {
 	T = new qelement[max_n];  // tworzymy tablicê dynamiczn¹
 	size = 0;                 // kopiec jest pusty
@@ -10,19 +10,19 @@ queue::queue(int max_n)
 
 // Destruktor - usuwa tablicê z pamiêci
 //-------------------------------------
-queue::~queue()
+queue_prior::~queue_prior()
 {
 	delete[] T;
 }
 
 // Sprawdza, czy kolejka jest pusta
 //---------------------------------
-bool queue::empty()
+bool queue_prior::isEmpty()
 {
 	return !size;
 }
 
-void queue::replace(int vertex, int newWeight)
+void queue_prior::replace(int vertex, int newWeight)
 {
 	int i = 0;
 	while (T[i].vertex != vertex)
@@ -36,7 +36,7 @@ void queue::replace(int vertex, int newWeight)
 	T[i].weight = newWeight;
 }
 
-void queue::display()
+void queue_prior::display()
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -44,7 +44,7 @@ void queue::display()
 	}
 }
 
-void queue::heapify()
+void queue_prior::heapify()
 {
 	for (int parentInd = 0; parentInd < size; parentInd++)
 	{
@@ -70,7 +70,7 @@ void queue::heapify()
 
 // Zapisuje do kolejki wg priorytetu
 //----------------------------------
-void queue::push(int vertex, int weight)
+void queue_prior::push(int vertex, int weight)
 {
 	int i, j;
 
@@ -90,7 +90,7 @@ void queue::push(int vertex, int weight)
 
 // Usuwa z kolejki
 //----------------
-qelement queue::pop()
+qelement queue_prior::pop()
 {
 	qelement pom;
 	pom.vertex = T[0].vertex;

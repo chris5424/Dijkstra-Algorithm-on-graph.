@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Definicja typu obiektowego queue
+// Definicja typu obiektowego queue_prior
 //---------------------------------
 
 struct qelement
@@ -17,16 +17,16 @@ struct qelement
 	int weight, vertex;
 };
 
-class queue
+class queue_prior
 {
 private:
 	qelement* T;  // kopiec dynamiczny
-	int size;         // liczba elementów
+	int size;         // trip elementów
 
 public:
-	queue(int max_n);
-	~queue();
-	bool empty();
+	queue_prior(int max_n);
+	~queue_prior();
+	bool isEmpty();
 	void push(int vertex, int weight);
 	qelement pop();
 	void replace(int vertex, int newWeight);

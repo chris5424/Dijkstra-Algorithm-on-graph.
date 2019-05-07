@@ -120,6 +120,7 @@
     <ClCompile Include="heapsort.cpp" />
     <ClCompile Include="hipo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="queue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="additional.h" />
@@ -127,6 +128,7 @@
     <ClInclude Include="graf.h" />
     <ClInclude Include="heapsort.hpp" />
     <ClInclude Include="hipo.h" />
+    <ClInclude Include="queue.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="graf.txt" />

@@ -57,9 +57,10 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 
 void dijkstra(Graph_List *graph, int startVertex, int size)
 {
-	int* distance = new int[size];
-	bool* visited = new bool[size];
-	queue* Q = new queue(size);
+	int *distance = new int[size];
+	bool *visited = new bool[size];
+	trip* prev = new trip[size];
+	queue_prior* Q = new queue_prior(size);
 	qelement* tab = new qelement[size-1];
 
 
@@ -73,7 +74,7 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		visited[i] = 0;
 		Q->push(i, distance[i]);
 	}
-	while (!(Q->empty()))
+	while (!(Q->isEmpty()))
 	{
 		for (int i = 0; i < size-1; i++)
 		{
@@ -87,19 +88,34 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		{
 			if ((visited[tab[i].vertex] == 0)&& (tab[i].vertex != -1))
 			{
-				if ((distance[u.vertex] + tab[i].weight) < distance[tab[i].weight])
+				if ((distance[u.vertex] + tab[i].weight) < distance[tab[i].vertex])
 				{
-					distance[tab[i].weight] = distance[u.vertex] + tab[i].weight;
-					Q->replace(tab[i].vertex, distance[tab[i].weight]);
+					distance[tab[i].vertex] = distance[u.vertex] + tab[i].weight;
+					Q->replace(tab[i].vertex, distance[tab[i].vertex]);
 					Q->heapify();
+					prev[tab[i].vertex].add(u.vertex);
 				}
 			}
 		}
 	}
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size-1; i++)
 	{
-		std::cout << i << " " << distance[i] << std::endl;
+		std::cout << i << " " << distance[i]<<std::endl;
+		
 	}
 	std::cout << std::endl;
+
+	//for (int i = 0; i < size-1; i++)
+	//{
+	//	std::cout << i << " " << distance[i]<<" ";
+	//	while (!(prev[i].isEmpty()))
+	//	{
+	//		//std::cout << "dupa";
+	//		int temp = prev[i].remove();
+	//		std::cout << temp << "-";
+	//	}
+	//	std::cout << std::endl;
+	//}
+	//std::cout << std::endl;
 
 }

@@ -26,7 +26,7 @@ int main()
 		return 0;
 	}
 
-	GenerateGraphRing(10, 100);
+	GenerateGraphRing(10, 50);
 	graph_file >> edges >> manyVertices >> startVertex;
 	Graph_Matrix *graphm = new Graph_Matrix(manyVertices);
 	Graph_List* graph = new Graph_List(manyVertices);
@@ -39,10 +39,19 @@ int main()
 		graphm->addVertex(tempVertexStart, tempVertexEnd, tempWeight);
 	}
 	graph_file.close();
-	graph->display();
+	//graph->display();
 
 	std::cout << "\n";
 
+	/*trip t;
+	t.add(1);
+	t.add(2);
+	t.add(3);
+	while(!(t.isEmpty()))
+	{ 
+		std::cout << t.remove();
+	}*/
+	
 	//qelement* tab = new qelement[manyVertices];
 	//graph->returnNeighbours(tab,2);
 	/*for (int i = 0; i < manyVertices-1; i++)
@@ -50,9 +59,9 @@ int main()
 		std::cout << tab[i].vertex<<"#"<< tab[i].weight<<" ";
 	}*/
 	dijkstra(graph,startVertex,manyVertices);
-	dijkstra(graphm, startVertex, manyVertices);
+	//dijkstra(graphm, startVertex, manyVertices);
 
-	//queue Q(10);   // kolejka 10-cio elementowa
+	//queue_prior Q(10);   // kolejka 10-cio elementowa
 	//int i, p, v;
 
 	//srand(time(NULL));
@@ -68,22 +77,22 @@ int main()
 	//cout << "----\n";
 	//Q.replace(1, 2308);
 
-	/*while (!Q.empty())
+	/*while (!Q.isEmpty())
 	{
 		qelement t = Q.pop();
 		cout << t.vertex << ":" << t.weight << endl;
 	}*/
 	/*Q.display();
 	Q.heapify();
-	std::cout << std::endl;
-	Q.display();
-	std::cout << std::endl;
-	while (!Q.empty())
+	std::cout << std::endl;*/
+	//Q.display();
+	/*std::cout << std::endl;
+	while (!Q.isEmpty())
 	{
 		qelement t = Q.pop();
 		cout << t.vertex << ":" << t.weight << endl;
-	}*/
-
+	}
+*/
 	system("pause");
 	return 1;
 }
