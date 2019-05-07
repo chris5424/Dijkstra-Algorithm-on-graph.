@@ -26,7 +26,7 @@ int main()
 		return 0;
 	}
 
-	GenerateGraphRing(10, 50);
+	GenerateGraphRing(10, 100);
 	graph_file >> edges >> manyVertices >> startVertex;
 	Graph_Matrix *graphm = new Graph_Matrix(manyVertices);
 	Graph_List* graph = new Graph_List(manyVertices);
@@ -59,7 +59,7 @@ int main()
 		std::cout << tab[i].vertex<<"#"<< tab[i].weight<<" ";
 	}*/
 	dijkstra(graph,startVertex,manyVertices);
-	//dijkstra(graphm, startVertex, manyVertices);
+	dijkstra(graphm, startVertex, manyVertices);
 
 	//queue_prior Q(10);   // kolejka 10-cio elementowa
 	//int i, p, v;

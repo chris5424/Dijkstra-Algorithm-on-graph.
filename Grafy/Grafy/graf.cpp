@@ -62,7 +62,6 @@ void Graph_List::addVertex(int start, int end, int weight)
 	{
 		List[start].addV(end, weight);
 		List[end].addV(start, weight);
-		std::cout <<"Dodajemy glowe\n";
 	}
 
 	else if ((List[start].areAdjacent(end) == 0)&& (List[end].areAdjacent(start) == 0))

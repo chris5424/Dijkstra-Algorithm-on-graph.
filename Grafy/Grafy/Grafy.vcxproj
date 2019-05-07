@@ -117,7 +117,6 @@
   <ItemGroup>
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="graf.cpp" />
-    <ClCompile Include="heapsort.cpp" />
     <ClCompile Include="hipo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queue.cpp" />
@@ -126,7 +125,6 @@
     <ClInclude Include="additional.h" />
     <ClInclude Include="dijkstra.h" />
     <ClInclude Include="graf.h" />
-    <ClInclude Include="heapsort.hpp" />
     <ClInclude Include="hipo.h" />
     <ClInclude Include="queue.h" />
   </ItemGroup>

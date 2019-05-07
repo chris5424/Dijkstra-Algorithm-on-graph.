@@ -11,6 +11,11 @@ void trip::add(int value)
 		end = NEW;
 		NEW->next = NULL;
 	}
+	else
+	{
+		NEW->next=root;
+		root = NEW;
+	}
 	size++;
 	
 }

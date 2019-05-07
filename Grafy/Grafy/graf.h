@@ -49,7 +49,6 @@ public:
 };
 
 
-
 class Graph_List
 {
 private:
@@ -131,12 +130,10 @@ private:
 			{
 				if (finder->vertex == v)
 				{
-					std::cout << "juz jest!\n";
 					return 1;
 				}
 				finder = finder->next;
 			}
-			std::cout << "nie ma, dodajemy\n";
 			return 0;
 		}
 		void disp()
@@ -170,9 +167,7 @@ private:
 	int maxvertex;
 	listVertex *List;
 	
-
 	public:
-	//tu by³o public
 	int edges = 0;
 	Graph_List(int maxvertex)
 	{

@@ -8,6 +8,7 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 {
 	int* distance = new int[size];
 	bool* visited = new bool[size];
+	trip* prev = new trip[size];
 	for (int i = 0; i <= size; i++)
 	{
 		visited[i] = 0;
@@ -26,6 +27,7 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 				if ((distance[startVertex] + graph->returnWeight(startVertex, i) < distance[i]) || (distance[i] == infinity))
 				{
 					distance[i] = distance[startVertex] + graph->returnWeight(startVertex, i);
+					prev[i].add(startVertex);					
 				}
 			}
 		}
@@ -50,7 +52,17 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 	}
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << i << " " << distance[i] << std::endl;
+		std::cout << i << "  " << distance[i] << "  ";
+		while (!(prev[i].isEmpty()))
+		{
+			int temp = prev[i].remove();
+			std::cout << temp;
+			if (!(prev[i].isEmpty()))
+			{
+				std::cout << "-";
+			}
+		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -98,24 +110,21 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 			}
 		}
 	}
-	for (int i = 0; i < size-1; i++)
+
+	for (int i = 0; i < size; i++)
 	{
-		std::cout << i << " " << distance[i]<<std::endl;
-		
+		std::cout << i << "  " << distance[i]<<"  ";
+		while (!(prev[i].isEmpty()))
+		{
+			int temp = prev[i].remove();
+			std::cout << temp;
+			if (!(prev[i].isEmpty()))
+			{
+				std::cout <<"-";
+			}
+		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-
-	//for (int i = 0; i < size-1; i++)
-	//{
-	//	std::cout << i << " " << distance[i]<<" ";
-	//	while (!(prev[i].isEmpty()))
-	//	{
-	//		//std::cout << "dupa";
-	//		int temp = prev[i].remove();
-	//		std::cout << temp << "-";
-	//	}
-	//	std::cout << std::endl;
-	//}
-	//std::cout << std::endl;
 
 }
