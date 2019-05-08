@@ -5,8 +5,6 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "heapsort.hpp"
-
 using namespace std;
 
 // Definicja typu obiektowego queue_prior

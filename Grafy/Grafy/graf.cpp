@@ -1,5 +1,4 @@
 #include <iostream>
-#include <assert.h>
 
 #include "graf.h"
 

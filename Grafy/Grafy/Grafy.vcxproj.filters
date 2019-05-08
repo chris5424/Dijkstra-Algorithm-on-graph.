@@ -47,9 +47,15 @@
     <ClInclude Include="queue.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="graf.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Wyniki.txt">
       <Filter>Pliki zasobów</Filter>
     </Text>
   </ItemGroup>

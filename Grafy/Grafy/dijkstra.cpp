@@ -50,7 +50,7 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 			break;
 		}
 	}
-	for (int i = 0; i < size; i++)
+	/*for (int i = 0; i < size; i++)
 	{
 		std::cout << i << "  " << distance[i] << "  ";
 		while (!(prev[i].isEmpty()))
@@ -64,7 +64,7 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 		}
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 }
 
 void dijkstra(Graph_List *graph, int startVertex, int size)
@@ -111,7 +111,7 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		}
 	}
 
-	for (int i = 0; i < size; i++)
+	/*for (int i = 0; i < size; i++)
 	{
 		std::cout << i << "  " << distance[i]<<"  ";
 		while (!(prev[i].isEmpty()))
@@ -125,6 +125,6 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		}
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 }
