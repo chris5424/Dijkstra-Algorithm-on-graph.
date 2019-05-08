@@ -2,7 +2,6 @@
 
 #include "graf.h"
 
-
 void Graph_Matrix::display()
 {
 	for (int i = 0; i < maxVertex; i++)
@@ -52,17 +51,11 @@ int Graph_Matrix::returnWeight(int startVertex, int endVertex)
 
 void Graph_List::addVertex(int start, int end, int weight)
 {
-	//if ((List[start].find(List->first, end) != end) && (List[start].find(List->first, start) != start))
-	//if (List[start].find(List->first, end) == end)
-	//{
-	//if (!(List[start].areAdjacent(List->first, end)) && !(List[start].areAdjacent(List->first, end)))
-
 	if (List[start].first == NULL)
 	{
 		List[start].addV(end, weight);
 		List[end].addV(start, weight);
 	}
-
 	else if ((List[start].areAdjacent(end) == 0)&& (List[end].areAdjacent(start) == 0))
 	{
 		List[start].addV(end, weight);

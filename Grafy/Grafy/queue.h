@@ -9,8 +9,6 @@ private:
 	trip* next;
 	trip* root = NULL, * NEW = NULL, * end = NULL, * temp = NULL;
 public:
-	trip();
-	~trip();
 	void add(int value);
 	int remove();
 	bool isEmpty();

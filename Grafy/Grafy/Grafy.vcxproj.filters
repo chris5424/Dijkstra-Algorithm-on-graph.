@@ -58,5 +58,8 @@
     <Text Include="Wyniki.txt">
       <Filter>Pliki zasobów</Filter>
     </Text>
+    <Text Include="rozwiazanie.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
   </ItemGroup>
 </Project>

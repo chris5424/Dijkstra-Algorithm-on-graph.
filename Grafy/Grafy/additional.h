@@ -82,7 +82,6 @@ void GenerateGraphRing(int manyVertices, int density)
 	graph.close();
 
 	graph.open(file_name, std::ios::app);
-
 	if (graph.good() == 0)
 	{
 		return;

@@ -1,6 +1,9 @@
 #pragma once
-#include "graf.h"
 
+#include <iostream>
+#include <fstream>
+
+#include "graf.h"
 #include "hipo.h"
 #include "queue.h"
 

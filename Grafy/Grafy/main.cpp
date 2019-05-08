@@ -3,22 +3,18 @@
 #include <chrono>
 #include <thread>
 
-
 #include "graf.h"
 #include "additional.h"
 #include "dijkstra.h"
 #include "test.h"
 
-#define ROZMIAR10 10
-#define ROZMIAR30 30
-#define ROZMIAR50 50
-#define ROZMIAR70 70
-#define ROZMIAR100 100
-#define ROZMIAR200 200
-#define ROZMIAR500 500
-#define ROZMIAR1000 1000
+#define SIZE10 10
+#define SIZE50 50
+#define SIZE100 100
+#define SIZE500 500
+#define SIZE1000 1000
 
-
+using namespace std;
 
 int main()
 {
@@ -29,7 +25,7 @@ int main()
 	SetConsoleTextAttribute(hOut, FOREGROUND_BLUE | FOREGROUND_RED);
 	//koniec kolorków
 
-	std::chrono::duration<double> czas_ca³oœci;
+	std::chrono::duration<double> czas_calosci;
 	
 	InicjalizujPlik();
 
@@ -37,56 +33,55 @@ int main()
 
 	cout << "Gestosc 25% " << endl;
 	cout << "Rozmiar10 " << endl;
-	//std::thread thd1(Test,100, std::ref(ROZMIAR10), 25);
-	Test(100,ROZMIAR10, 25);
+	Test(100,SIZE10, 25);
 	cout << "Rozmiar50 " << endl;
-	Test(100, ROZMIAR50, 25);
+	Test(100, SIZE50, 25);
 	cout << "Rozmiar100 " << endl;
-	Test(100, ROZMIAR100, 25); 
+	Test(100, SIZE100, 25); 
 	cout << "Rozmiar500 " << endl;
-	Test(100, ROZMIAR500, 25); 
+	Test(100, SIZE500, 25); 
 	cout << "Rozmiar1000 " << endl;
-	Test(100, ROZMIAR1000, 25);
+	Test(100, SIZE1000, 25);
 
 	cout << "Gestosc 50% " << endl;
 	cout << "Rozmiar10 " << endl;
-	Test(100, ROZMIAR10, 50);
+	Test(100, SIZE10, 50);
 	cout << "Rozmiar50 " << endl;
-	Test(100, ROZMIAR50, 50);
+	Test(100, SIZE50, 50);
 	cout << "Rozmiar100 " << endl;
-	Test(100, ROZMIAR100, 50);
+	Test(100, SIZE100, 50);
 	cout << "Rozmiar500 " << endl;
-	Test(100, ROZMIAR500, 50);
+	Test(100, SIZE500, 50);
 	cout << "Rozmiar1000 " << endl;
-	Test(100, ROZMIAR1000, 50);
+	Test(100, SIZE1000, 50);
 
 	cout << "Gestosc 75% " << endl;
 	cout << "Rozmiar10 " << endl;
-	Test(100, ROZMIAR10, 75);
+	Test(100, SIZE10, 75);
 	cout << "Rozmiar50 " << endl;
-	Test(100, ROZMIAR50, 75);
+	Test(100, SIZE50, 75);
 	cout << "Rozmiar100 " << endl;
-	Test(100, ROZMIAR100, 75);
+	Test(100, SIZE100, 75);
 	cout << "Rozmiar500 " << endl;
-	Test(100, ROZMIAR500, 75);
+	Test(100, SIZE500, 75);
 	cout << "Rozmiar1000 " << endl;
-	Test(100, ROZMIAR1000, 75);
+	Test(100, SIZE1000, 75);
 
 	cout << "Gestosc 100% " << endl;
 	cout << "Rozmiar10 " << endl;
-	Test(100, ROZMIAR10, 100);
+	Test(100, SIZE10, 100);
 	cout << "Rozmiar50 " << endl;
-	Test(100, ROZMIAR50, 100);
+	Test(100, SIZE50, 100);
 	cout << "Rozmiar100 " << endl;
-	Test(100, ROZMIAR100, 100);
+	Test(100, SIZE100, 100);
 	cout << "Rozmiar500 " << endl;
-	Test(100, ROZMIAR500, 100);
+	Test(100, SIZE500, 100);
 	cout << "Rozmiar1000 " << endl;
-	Test(100, ROZMIAR1000, 100);
+	Test(100, SIZE1000, 100);
 
 	auto end = std::chrono::system_clock::now();
-	czas_ca³oœci = end - st;
-	std::cout << czas_ca³oœci.count() << " s" << std::endl;
+	czas_calosci = end - st;
+	std::cout << czas_calosci.count() << " s" << std::endl;
 
 
 

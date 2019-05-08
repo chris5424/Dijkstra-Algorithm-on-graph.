@@ -1,6 +1,5 @@
 #include "queue.h"
 
-
 void trip::add(int value)
 {
 	NEW = new trip;
@@ -17,8 +16,8 @@ void trip::add(int value)
 		root = NEW;
 	}
 	size++;
-	
 }
+
 int trip::remove()
 {
 	int ret;
@@ -50,10 +49,3 @@ bool trip::isEmpty()
 	return !size;
 }
 
-trip::trip()
-{
-}
-
-trip::~trip()
-{
-}

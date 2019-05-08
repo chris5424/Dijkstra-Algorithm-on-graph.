@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "hipo.h"
 
+#include "hipo.h"
 
 class Graph_Matrix
 {
@@ -47,7 +47,6 @@ public:
 		adjacencyMatrix = NULL;
 	}
 };
-
 
 class Graph_List
 {

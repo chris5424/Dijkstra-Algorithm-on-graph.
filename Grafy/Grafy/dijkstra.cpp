@@ -1,7 +1,5 @@
 #include "dijkstra.h"
 
-
-
 constexpr auto infinity = 2147483647;
 
 void dijkstra(Graph_Matrix* graph, int startVertex, int size)
@@ -15,7 +13,6 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 		distance[i] = infinity;
 	}
 	distance[startVertex] = 0;
-
 
 	for (int j = 0; j < graph->edges; j++)
 	{
@@ -50,21 +47,30 @@ void dijkstra(Graph_Matrix* graph, int startVertex, int size)
 			break;
 		}
 	}
-	/*for (int i = 0; i < size; i++)
+
+	/*std::fstream rozwiazanie;
+	rozwiazanie.open("rozwiazanie.txt", std::ios::out | std::ios::app);
+	if (!rozwiazanie.good())
 	{
-		std::cout << i << "  " << distance[i] << "  ";
+		return;
+	}
+	
+	for (int i = 0; i < size; i++)
+	{
+		rozwiazanie << i << "  " << distance[i] << "  ";
 		while (!(prev[i].isEmpty()))
 		{
 			int temp = prev[i].remove();
-			std::cout << temp;
+			rozwiazanie << temp;
 			if (!(prev[i].isEmpty()))
 			{
-				std::cout << "-";
+				rozwiazanie << "-";
 			}
 		}
-		std::cout << std::endl;
+		rozwiazanie << std::endl;
 	}
-	std::cout << std::endl;*/
+	rozwiazanie << std::endl;
+	rozwiazanie.close();*/
 }
 
 void dijkstra(Graph_List *graph, int startVertex, int size)
@@ -74,7 +80,6 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 	trip* prev = new trip[size];
 	queue_prior* Q = new queue_prior(size);
 	qelement* tab = new qelement[size-1];
-
 
 	for (int i = 0; i < size; i++)
 	{
@@ -111,20 +116,27 @@ void dijkstra(Graph_List *graph, int startVertex, int size)
 		}
 	}
 
-	/*for (int i = 0; i < size; i++)
+	/*std::fstream rozwiazanie;
+	rozwiazanie.open("rozwiazanie.txt", std::ios::out | std::ios::app);
+	if (!rozwiazanie.good())
 	{
-		std::cout << i << "  " << distance[i]<<"  ";
+		return;
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		rozwiazanie << i << "  " << distance[i] << "  ";
 		while (!(prev[i].isEmpty()))
 		{
 			int temp = prev[i].remove();
-			std::cout << temp;
+			rozwiazanie << temp;
 			if (!(prev[i].isEmpty()))
 			{
-				std::cout <<"-";
+				rozwiazanie << "-";
 			}
 		}
-		std::cout << std::endl;
+		rozwiazanie << std::endl;
 	}
-	std::cout << std::endl;*/
-
+	rozwiazanie << std::endl;
+	rozwiazanie.close();*/
 }

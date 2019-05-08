@@ -5,11 +5,6 @@
 #include <ctime>
 #include <cstdlib>
 
-using namespace std;
-
-// Definicja typu obiektowego queue_prior
-//---------------------------------
-
 struct qelement
 {
 	int weight, vertex;
@@ -18,8 +13,8 @@ struct qelement
 class queue_prior
 {
 private:
-	qelement* T;  // kopiec dynamiczny
-	int size;         // trip elementów
+	qelement* T;
+	int size;       
 
 public:
 	queue_prior(int max_n);

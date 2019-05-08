@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="graf.txt" />
+    <Text Include="rozwiazanie.txt" />
     <Text Include="Wyniki.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

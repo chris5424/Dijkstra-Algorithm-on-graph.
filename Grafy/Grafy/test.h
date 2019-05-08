@@ -6,28 +6,27 @@
 #include <ctime>
 #include <chrono>
 #include <fstream>
-//#include <process.h>
 
 #include "graf.h"
 #include "dijkstra.h"
 #include "additional.h"
 
-void ZapiszWyniki(double czasG, double czasM, int rozmiar, int gestosc)
+void writeResults(double czasG, double czasM, int rozmiar, int gestosc)
 {
-	std::fstream plik;
-	plik.open("Wyniki.txt", std::ios::out | std::ios::app);
-	if (plik.good())
+	std::fstream file;
+	file.open("Wyniki.txt", std::ios::out | std::ios::app);
+	if (file.good())
 	{
-		plik << "GrafLista " << rozmiar << " " << gestosc << " " << std::setw(16) << czasG << std::endl;
-		plik << "GrafMacierz " << rozmiar << " " << gestosc << " " << std::setw(16) << czasM << std::endl;
+		file << "GrafLista " << rozmiar << " " << gestosc << " " << std::setw(16) << czasG << std::endl;
+		file << "GrafMacierz " << rozmiar << " " << gestosc << " " << std::setw(16) << czasM << std::endl;
 	}
-	plik.close();
+	file.close();
 }
 
-void Test(int iloscTestow, int rozmiar, int gestosc)
+void Test(int manyTests, int size, int density)
 {
-	double *wynikiG=new double[iloscTestow];//tablica na wyniki sortowan pojedynczych tablic
-	double *wynikiM=new double[iloscTestow];//tablica na wyniki sortowan pojedynczych tablic
+	double *resultsL=new double[manyTests];
+	double *resultsM=new double[manyTests];
 	double suma_czasowG = 0;
 	double suma_czasowM = 0;
 	std::fstream graph_file;
@@ -36,7 +35,7 @@ void Test(int iloscTestow, int rozmiar, int gestosc)
 	int manyVertices = 0, edges = 0, startVertex = 0;
 	int tempVertexStart = 0, tempVertexEnd = 0, tempWeight = 0;
 
-	for (int i = 0; i < iloscTestow; ++i)
+	for (int i = 0; i < manyTests; ++i)
 	{
 		graph_file.open(file_name, std::ios::in);
 		if (graph_file.good() == 0)
@@ -44,7 +43,7 @@ void Test(int iloscTestow, int rozmiar, int gestosc)
 			return;
 		}
 
-		GenerateGraphRing(rozmiar, gestosc);
+		GenerateGraphRing(size, density);
 		graph_file >> edges >> manyVertices >> startVertex;
 
 		Graph_Matrix* graph_matrix = new Graph_Matrix(manyVertices);
@@ -65,33 +64,33 @@ void Test(int iloscTestow, int rozmiar, int gestosc)
 		dijkstra(graph_list, startVertex, manyVertices);
 		auto stop = std::chrono::system_clock::now();
 		czas = stop - start;
-		wynikiG[i] = czas.count();
-		suma_czasowG += wynikiG[i];
+		resultsL[i] = czas.count();
+		suma_czasowG += resultsL[i];
 
 		start = std::chrono::system_clock::now();
 		dijkstra(graph_matrix, startVertex, manyVertices);
 		stop = std::chrono::system_clock::now();
 		czas = stop - start;
-		wynikiM[i] = czas.count();
-		suma_czasowM += wynikiM[i];
+		resultsM[i] = czas.count();
+		suma_czasowM += resultsM[i];
 
-		std::cout << i<<"/"<<iloscTestow<<std::endl;
+		std::cout << i<<"/"<<manyTests<<std::endl;
 	}
-	suma_czasowG /= iloscTestow;
-	suma_czasowM /= iloscTestow;
+	suma_czasowG /= manyTests;
+	suma_czasowM /= manyTests;
 
-	ZapiszWyniki(suma_czasowG, suma_czasowM, rozmiar, gestosc);
+	writeResults(suma_czasowG, suma_czasowM, size, density);
 	//_endthread();
 }
 
 void InicjalizujPlik()
 {
-	std::fstream plik;
-	plik.open("Wyniki.txt", std::ios::out);
-	if (plik.good())
+	std::fstream file;
+	file.open("Wyniki.txt", std::ios::out);
+	if (file.good())
 	{
-		plik << "Reprezentacja_Grafu Rozmiar Gestosc Czas_Sredni" << std::endl;
+		file << "Reprezentacja_Grafu Rozmiar Gestosc Czas_Sredni" << std::endl;
 	}
-	plik.close();
+	file.close();
 }
 
